@@ -1,6 +1,7 @@
 import React from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import useActions from "../../hooks/useActions";
+import "./galleryTabs.scss";
 
 const GalleryTabs: React.FC = () => {
   const albums = [
@@ -29,12 +30,12 @@ const GalleryTabs: React.FC = () => {
 
   return (
     <Tabs
+      className="galleryTabs"
       defaultActiveKey={albums[0].id}
       onSelect={handleSelect}
-      className="mb-3"
     >
       {albums.map((album) => (
-        <Tab eventKey={album.id} title={album.name} />
+        <Tab eventKey={album.id} key={album.id} title={album.name} />
       ))}
     </Tabs>
   );

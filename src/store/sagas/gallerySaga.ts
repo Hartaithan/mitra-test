@@ -6,6 +6,9 @@ import {
   getGallerySuccessAction,
 } from "../actions/galleryActions";
 
+const delay = (time: number) =>
+  new Promise((resolve) => setTimeout(resolve, time));
+
 const getGallery = () =>
   axios.get<IGalleryItem[]>(
     "https://jsonplaceholder.typicode.com/photos?_limit=24"
@@ -14,9 +17,10 @@ const getGallery = () =>
 function* getGalleryWorker() {
   try {
     const res: AxiosResponse<IGalleryItem[]> = yield call(getGallery);
+    yield delay(500);
     yield put(getGallerySuccessAction(res.data));
   } catch (e) {
-    yield put(getGalleryErrorAction("Get gallery items error"));
+    yield put(getGalleryErrorAction("Failed to get gallery photos"));
   }
 }
 
