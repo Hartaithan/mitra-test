@@ -1,22 +1,11 @@
 import React from "react";
-import useActions from "../../hooks/useActions";
-import useTypedSelector from "../../hooks/useTypedSelector";
+import { IGalleryGridProps } from "../../models/galleryGridModel";
 import "./galleryGrid.scss";
 
-const GalleryGrid: React.FC = () => {
-  const { list } = useTypedSelector((state) => state.gallery);
-  const { getGalleryAction } = useActions();
-  const [albumId, setAlbumId] = React.useState(1);
-
-  const getAlbumIdList = [...list].filter((item) => item.albumId === albumId);
-
-  React.useEffect(() => {
-    getGalleryAction();
-  }, []); // eslint-disable-line
-
+const GalleryGrid: React.FC<IGalleryGridProps> = ({ list }) => {
   return (
     <div className="galleryGrid">
-      {getAlbumIdList.map((item) => (
+      {list.map((item) => (
         <img key={item.id} src={item.url} alt={item.id.toString()} />
       ))}
     </div>
