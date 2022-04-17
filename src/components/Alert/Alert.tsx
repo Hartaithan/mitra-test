@@ -8,9 +8,19 @@ interface IAlertProps {
 }
 
 const Alert: React.FC<IAlertProps> = (props) => {
-  const { variant = "danger", children = "", dismissible = false } = props;
+  const [show, setShow] = React.useState(true);
+  const { variant = "danger", children, dismissible = true } = props;
+
+  if (!show) {
+    return null;
+  }
+
   return (
-    <BootstrapAlert variant={variant} dismissible={dismissible}>
+    <BootstrapAlert
+      variant={variant}
+      dismissible={dismissible}
+      onClose={() => setShow(false)}
+    >
       {children}
     </BootstrapAlert>
   );
