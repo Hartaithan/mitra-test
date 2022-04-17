@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
 import "./header.scss";
 
 const Header: React.FC = () => {
@@ -11,27 +12,7 @@ const Header: React.FC = () => {
         <Navbar.Brand>
           <NavLink to="/">Gallery</NavLink>
         </Navbar.Brand>
-        <Navbar.Offcanvas
-          id="menu"
-          placement="start"
-          aria-labelledby="headerNavMenu"
-        >
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="headerNavMenu">
-              Navigation Menu
-            </Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <NavLink className="nav-link" to="/">
-                Gallery
-              </NavLink>
-              <NavLink className="nav-link" to="/about">
-                About
-              </NavLink>
-            </Nav>
-          </Offcanvas.Body>
-        </Navbar.Offcanvas>
+        <Sidebar />
       </Container>
     </Navbar>
   );

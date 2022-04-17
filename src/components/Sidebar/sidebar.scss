@@ -1,0 +1,16 @@
+.sidebar {
+  &__user {
+    height: 50px;
+    display: flex;
+    &__avatar {
+      height: 100%;
+      width: 50px;
+    }
+    &__details {
+      margin-left: 12px;
+      p:first-child {
+        font-weight: bold;
+      }
+    }
+  }
+}
