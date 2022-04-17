@@ -1,0 +1,11 @@
+.header {
+  &__container {
+    justify-content: flex-start !important;
+    & > .navbar-brand {
+      margin-left: 24px;
+      & > a {
+        text-decoration: none;
+      }
+    }
+  }
+}
