@@ -7,8 +7,8 @@ import useTypedSelector from "../hooks/useTypedSelector";
 
 const Gallery: React.FC = () => {
   const { list } = useTypedSelector((state) => state.gallery);
+  const { albumId } = useTypedSelector((state) => state.app);
   const { getGalleryAction } = useActions();
-  const [albumId, setAlbumId] = React.useState(1);
 
   const getAlbumIdList = [...list].filter((item) => item.albumId === albumId);
 
