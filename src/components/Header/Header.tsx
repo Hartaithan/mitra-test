@@ -6,7 +6,7 @@ import "./header.scss";
 
 const Header: React.FC = () => {
   return (
-    <Navbar expand={false} className="header">
+    <Navbar expand={false} collapseOnSelect className="header">
       <Container className="header__container">
         <Navbar.Toggle aria-controls="menu" />
         <Navbar.Brand>

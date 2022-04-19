@@ -27,12 +27,12 @@ const Sidebar: React.FC = () => {
           </Card.Body>
         </Card>
         <Nav className="justify-content-end flex-grow-1 pe-3">
-          <NavLink className="nav-link" to="/">
+          <Nav.Link as={NavLink} className="nav-link" to="/" eventKey="1">
             Gallery
-          </NavLink>
-          <NavLink className="nav-link" to="/about">
+          </Nav.Link>
+          <Nav.Link as={NavLink} className="nav-link" to="/about" eventKey="2">
             About
-          </NavLink>
+          </Nav.Link>
         </Nav>
       </Offcanvas.Body>
     </Navbar.Offcanvas>
