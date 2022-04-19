@@ -34,7 +34,10 @@ const Details: React.FC = () => {
           <Card.Img
             variant="top"
             src={photo.url}
-            style={{ height: "500px", objectFit: "cover" }}
+            style={{
+              height: window.innerWidth > 575 ? "500px" : "300px",
+              objectFit: "cover",
+            }}
           />
           <Card.Body>
             <Card.Title>{photo.title}</Card.Title>

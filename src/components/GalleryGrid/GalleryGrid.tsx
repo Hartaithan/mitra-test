@@ -8,7 +8,7 @@ const GalleryGrid: React.FC<IGalleryGridProps> = ({ list }) => {
   return (
     <Row className="galleryGrid">
       {list.map((item) => (
-        <Col className="mb-4" xs={6} lg={4} key={item.id}>
+        <Col className="mb-4" xs={12} md={6} lg={4} key={item.id}>
           <Card className="galleryGrid__card text-white">
             <Card.Img
               className="galleryGrid__card__image"

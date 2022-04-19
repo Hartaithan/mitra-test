@@ -1,3 +1,9 @@
 .galleryTabs {
   margin-bottom: 12px;
+  .nav-item {
+    width: calc(100% / 4);
+    button {
+      width: 100%;
+    }
+  }
 }
