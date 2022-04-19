@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Button, Card, Container } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
 import Alert from "../components/Alert/Alert";
 import Loader from "../components/Loader/Loader";
 import useTypedSelector from "../hooks/useTypedSelector";
@@ -9,10 +9,10 @@ import { IGalleryItem } from "../models/galleryModel";
 const Details: React.FC = () => {
   const { list, isLoading, error } = useTypedSelector((state) => state.gallery);
   let { id } = useParams();
+  const navigate = useNavigate();
   const [photo, setPhoto] = React.useState<IGalleryItem | null>(null);
 
   React.useEffect(() => {
-    console.log(list);
     if (list.length !== 0) {
       setPhoto(list[Number(id) - 1]);
     }
@@ -26,6 +26,9 @@ const Details: React.FC = () => {
   }
   return (
     <Container>
+      <Button className="mb-2 px-4" onClick={() => navigate(-1)}>
+        Back
+      </Button>
       {photo && (
         <Card className="w-100">
           <Card.Img
