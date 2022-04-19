@@ -1,6 +1,7 @@
 import React from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import useActions from "../../hooks/useActions";
+import useTypedSelector from "../../hooks/useTypedSelector";
 import "./galleryTabs.scss";
 
 const GalleryTabs: React.FC = () => {
@@ -22,6 +23,7 @@ const GalleryTabs: React.FC = () => {
       name: "Album 4",
     },
   ];
+  const { albumId } = useTypedSelector((state) => state.app);
   const { setAlbumIdAction } = useActions();
 
   const handleSelect = (key: string | null) => {
@@ -31,7 +33,7 @@ const GalleryTabs: React.FC = () => {
   return (
     <Tabs
       className="galleryTabs"
-      defaultActiveKey={albums[0].id}
+      defaultActiveKey={albumId}
       onSelect={handleSelect}
     >
       {albums.map((album) => (
